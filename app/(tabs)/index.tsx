@@ -6,6 +6,7 @@ import {
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
 import React from "react";
+import { Loading } from "@/src/components/Loading";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,7 +22,7 @@ export default function App() {
         translucent
       />
 
-      {fontsLoaded ? <View /> : <View />}
+      {fontsLoaded ? <View /> : <Loading />}
     </GluestackUIProvider>
   );
 }
