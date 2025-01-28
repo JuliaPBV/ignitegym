@@ -1,5 +1,5 @@
 import { View, StatusBar } from "react-native";
-import { GluestackUIProvider } from "@gluestack-ui/themed";
+import { NativeBaseProvider } from "native-base";
 import {
   useFonts,
   Roboto_400Regular,
@@ -7,6 +7,7 @@ import {
 } from "@expo-google-fonts/roboto";
 import React from "react";
 import { Loading } from "@/src/components/Loading";
+import { THEME } from "../../src/theme";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,7 +16,7 @@ export default function App() {
   });
 
   return (
-    <GluestackUIProvider>
+    <NativeBaseProvider theme={THEME}>
       <StatusBar
         barStyle="light-content"
         backgroundColor="transparente"
@@ -23,6 +24,6 @@ export default function App() {
       />
 
       {fontsLoaded ? <View /> : <Loading />}
-    </GluestackUIProvider>
+    </NativeBaseProvider>
   );
 }
