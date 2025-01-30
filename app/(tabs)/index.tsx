@@ -8,7 +8,7 @@ import {
 import React from "react";
 import { Loading } from "@/src/components/Loading";
 import { THEME } from "../../src/theme";
-import { SignIn } from "@/src/screens/Signin";
+import { SignUp } from "@/src/screens/SignUp";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,7 +24,7 @@ export default function App() {
         translucent
       />
 
-      {fontsLoaded ? <SignIn /> : <Loading />}
+      {fontsLoaded ? <SignUp /> : <Loading />}
     </NativeBaseProvider>
   );
 }
