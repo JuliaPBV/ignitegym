@@ -8,7 +8,7 @@ import {
 import React from "react";
 import { Loading } from "@/src/components/Loading";
 import { THEME } from "../../src/theme";
-import { Routes } from "../../src/routes";
+import { Routes } from "@/src/routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
