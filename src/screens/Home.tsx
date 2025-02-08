@@ -5,14 +5,14 @@ import { useState } from "react";
 import { ExerciseCard } from "../components/ExerciseCard";
 
 export function Home() {
-  const [groups, setGroup] = useState(["Costa", "Bíceps", "Tríceps", "ombro"]);
+  const [groups, setGroup] = useState(["Costas", "Bíceps", "Tríceps", "ombro"]);
   const [exercises, setExersices] = useState([
     "Puxada frontal",
     "Remada curvada",
     "Remada unilateral",
     "Levantamento terra",
   ]);
-  const [groupSelected, setGroupSelected] = useState("costa");
+  const [groupSelected, setGroupSelected] = useState("Costas");
 
   return (
     <VStack flex={1}>
@@ -24,7 +24,9 @@ export function Home() {
         renderItem={({ item }) => (
           <Group
             name={item}
-            isActive={groupSelected === item}
+            isActive={
+              groupSelected.toLocaleUpperCase() === item.toLocaleUpperCase()
+            }
             onPress={() => setGroupSelected(item)}
           />
         )}
