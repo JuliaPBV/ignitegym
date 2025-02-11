@@ -21,18 +21,29 @@ export function Profile() {
   const [userPhoto, setUserPhoto] = useState("https://github.com/JuliaPBV.png");
 
   async function handleUserPhotoSelect() {
-    const photoSelected = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ["images"],
-      quality: 1,
-      aspect: [4, 4],
-      allowsEditing: true,
-    });
+    setPhotoIsLoading(true);
+    try {
+      const photoSelected = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ["images"],
+        quality: 1,
+        aspect: [4, 4],
+        allowsEditing: true,
+      });
 
-    if (photoSelected.canceled) {
-      return;
+      if (photoSelected.canceled) {
+        return;
+      }
+
+      if (photoSelected.assets && photoSelected.assets.length > 0) {
+        setUserPhoto(photoSelected.assets[0].uri);
+      }
+
+      setUserPhoto(photoSelected.assets[0].uri);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setPhotoIsLoading(false);
     }
-
-    setUserPhoto(photoSelected.assets[0].uri);
   }
 
   return (
