@@ -7,5 +7,5 @@ export function Routes() {
   const { colors } = useTheme();
   const theme = DefaultTheme;
   theme.colors.background = colors.gray[700];
-  return <AppRoutes />;
+  return <AuthRoutes />;
 }
