@@ -1,5 +1,5 @@
 import { Platform } from "react-native";
-import { useTheme } from "native-base";
+import { Center, useTheme } from "native-base";
 import {
   createBottomTabNavigator,
   BottomTabNavigationProp,
@@ -42,6 +42,9 @@ export function AppRoutes() {
           height: Platform.OS === "android" ? "auto" : 96,
           paddingBottom: sizes[10],
           paddingTop: sizes[6],
+          flexDirection: "row",
+          justifyContent: "space-between",
+          paddingHorizontal: sizes[4],
         },
       }}
     >
@@ -50,7 +53,12 @@ export function AppRoutes() {
         component={Home}
         options={{
           tabBarIcon: ({ color }) => (
-            <HomeSvg fill={color} width={iconSize} height={iconSize} />
+            <HomeSvg
+              fill={color}
+              width={iconSize}
+              height={iconSize}
+              style={{ flex: 1 }}
+            />
           ),
         }}
       />
@@ -60,7 +68,14 @@ export function AppRoutes() {
         component={History}
         options={{
           tabBarIcon: ({ color }) => (
-            <HistorySvg fill={color} width={iconSize} height={iconSize} />
+            <Center>
+              <HistorySvg
+                fill={color}
+                width={iconSize}
+                height={iconSize}
+                style={{ flex: 1 }}
+              />
+            </Center>
           ),
         }}
       />
@@ -70,7 +85,14 @@ export function AppRoutes() {
         component={Profile}
         options={{
           tabBarIcon: ({ color }) => (
-            <ProfileSvg fill={color} width={iconSize} height={iconSize} />
+            <Center>
+              <ProfileSvg
+                fill={color}
+                width={iconSize}
+                height={iconSize}
+                style={{ flex: 1 }}
+              />
+            </Center>
           ),
         }}
       />
