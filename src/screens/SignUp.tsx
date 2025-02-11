@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
 
 type FormDataProps = {
-  nome: string;
+  name: string;
   email: string;
   password: string;
   password_confirm: string;
@@ -23,12 +23,7 @@ export function SignUp() {
     navigation.goBack();
   }
 
-  function handleSignUp({
-    nome,
-    email,
-    password,
-    password_confirm,
-  }: FormDataProps) {}
+  function handleSignUp(data: FormDataProps) {}
 
   return (
     <ScrollView
