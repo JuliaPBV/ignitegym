@@ -26,7 +26,7 @@ const singUpSchema = yup.object({
   password_confirm: yup
     .string()
     .required("Confirme a senha")
-    .oneOf([yup.ref("password"), null], "A confirmação da senha não confere."),
+    .oneOf([yup.ref("password")], "A confirmação da senha não confere."),
 });
 
 export function SignUp() {
@@ -91,13 +91,6 @@ export function SignUp() {
           <Controller
             control={control}
             name="email"
-            rules={{
-              required: "Informe seu e-mail",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "E-mail inválido",
-              },
-            }}
             render={({ field: { onChange, value } }) => (
               <Input
                 placeholder="E-mail"
@@ -149,7 +142,7 @@ export function SignUp() {
         <Button
           title="Voltar para o login"
           variant="outline"
-          mt={24}
+          mt={12}
           onPress={handleGoBack}
         />
       </VStack>

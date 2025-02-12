@@ -35,7 +35,9 @@ export function Input({ errorMenssage = null, isInvalid, ...rest }: Props) {
         {...rest}
       />
 
-      <FormControl.ErrorMessage>{errorMenssage}</FormControl.ErrorMessage>
+      <FormControl.ErrorMessage _text={{ color: "red.500" }}>
+        {errorMenssage}
+      </FormControl.ErrorMessage>
     </FormControl>
   );
 }
